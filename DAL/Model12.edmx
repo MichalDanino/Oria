@@ -1,0 +1,1008 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="masterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Authors">
+          <Key>
+            <PropertyRef Name="A_cod" />
+          </Key>
+          <Property Name="A_cod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="A_fName" Type="varchar" MaxLength="50" />
+          <Property Name="A_lName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="A_adress" Type="varchar" MaxLength="50" />
+          <Property Name="A_city" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Candidates">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="firstName" Type="varchar" MaxLength="50" />
+          <Property Name="lastName" Type="varchar" MaxLength="50" />
+          <Property Name="greade" Type="int" />
+        </EntityType>
+        <EntityType Name="Cassettes">
+          <Key>
+            <PropertyRef Name="C_cod" />
+          </Key>
+          <Property Name="C_cod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="C_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="C_sub" Type="varchar" MaxLength="50" />
+          <Property Name="C_len" Type="float" />
+          <Property Name="C_A_cod" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="city">
+          <Key>
+            <PropertyRef Name="CODEcity" />
+          </Key>
+          <Property Name="CODEcity" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAMEcity" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="departments">
+          <Key>
+            <PropertyRef Name="CODEdepartments" />
+          </Key>
+          <Property Name="CODEdepartments" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAMEdepartments" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Emeployees">
+          <Key>
+            <PropertyRef Name="IdEmeployee" />
+          </Key>
+          <Property Name="IdEmeployee" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="Age" Type="int" />
+          <Property Name="StartOfWorkingYear" Type="int" />
+          <Property Name="CityAddress" Type="varchar" MaxLength="50" />
+          <Property Name="StreetAddress" Type="varchar" MaxLength="50" />
+          <Property Name="JobTitle" Type="varchar" MaxLength="50" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="50" />
+          <Property Name="GmailAddress" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="interview">
+          <Key>
+            <PropertyRef Name="IntervewNum" />
+          </Key>
+          <Property Name="IntervewNum" Type="int" Nullable="false" />
+          <Property Name="Id_Intervoewer" Type="int" />
+          <Property Name="id_interviewee" Type="int" />
+          <Property Name="Date_intervew" Type="varchar" MaxLength="50" />
+          <Property Name="interviewFORrole" Type="varchar" MaxLength="50" />
+          <Property Name="isSucceed" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'master.dbo.MSreplication_options' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MSreplication_options">
+          <Key>
+            <PropertyRef Name="optname" />
+            <PropertyRef Name="value" />
+            <PropertyRef Name="major_version" />
+            <PropertyRef Name="minor_version" />
+            <PropertyRef Name="revision" />
+            <PropertyRef Name="install_failures" />
+          </Key>
+          <Property Name="optname" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="value" Type="bit" Nullable="false" />
+          <Property Name="major_version" Type="int" Nullable="false" />
+          <Property Name="minor_version" Type="int" Nullable="false" />
+          <Property Name="revision" Type="int" Nullable="false" />
+          <Property Name="install_failures" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="nurse">
+          <Key>
+            <PropertyRef Name="IDnurse" />
+          </Key>
+          <Property Name="IDnurse" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="NAMEnurse" Type="varchar" MaxLength="20" />
+          <Property Name="ADRESSnurse" Type="varchar" MaxLength="50" />
+          <Property Name="CITYnurse" Type="int" />
+          <Property Name="HOURsalaryNURSE" Type="float" />
+        </EntityType>
+        <EntityType Name="patients">
+          <Key>
+            <PropertyRef Name="IDpatient" />
+          </Key>
+          <Property Name="IDpatient" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="NAMEpatient" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="BIRTHDAYpatient" Type="date" />
+          <Property Name="ADRESS" Type="varchar" MaxLength="20" />
+          <Property Name="ADRESSpatient" Type="date" />
+          <Property Name="CODEroomPATIENTS" Type="int" />
+          <Property Name="CODEcity" Type="int" />
+          <Property Name="ILLNESSpatient" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="room">
+          <Key>
+            <PropertyRef Name="CODEroom" />
+          </Key>
+          <Property Name="CODEroom" Type="int" Nullable="false" />
+          <Property Name="CODEdepartmentROOM" Type="int" Nullable="false" />
+          <Property Name="COUNTroomBEDS" Type="int" />
+        </EntityType>
+        <EntityType Name="shiftt">
+          <Key>
+            <PropertyRef Name="CODEshift" />
+          </Key>
+          <Property Name="CODEshift" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CODEnursesSHIFT" Type="varchar" MaxLength="9" />
+          <Property Name="CODEroomSHIFT" Type="int" />
+          <Property Name="BEGINhourSHIFT" Type="date" Nullable="false" />
+          <Property Name="ENDhourSHIFT" Type="date" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'master.dbo.spt_fallback_db' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="spt_fallback_db">
+          <Key>
+            <PropertyRef Name="xserver_name" />
+            <PropertyRef Name="xdttm_ins" />
+            <PropertyRef Name="xdttm_last_ins_upd" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="dbid" />
+            <PropertyRef Name="status" />
+            <PropertyRef Name="version" />
+          </Key>
+          <Property Name="xserver_name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="xdttm_ins" Type="datetime" Nullable="false" />
+          <Property Name="xdttm_last_ins_upd" Type="datetime" Nullable="false" />
+          <Property Name="xfallback_dbid" Type="smallint" />
+          <Property Name="name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="dbid" Type="smallint" Nullable="false" />
+          <Property Name="status" Type="smallint" Nullable="false" />
+          <Property Name="version" Type="smallint" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'master.dbo.spt_fallback_dev' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="spt_fallback_dev">
+          <Key>
+            <PropertyRef Name="xserver_name" />
+            <PropertyRef Name="xdttm_ins" />
+            <PropertyRef Name="xdttm_last_ins_upd" />
+            <PropertyRef Name="low" />
+            <PropertyRef Name="high" />
+            <PropertyRef Name="status" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="phyname" />
+          </Key>
+          <Property Name="xserver_name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="xdttm_ins" Type="datetime" Nullable="false" />
+          <Property Name="xdttm_last_ins_upd" Type="datetime" Nullable="false" />
+          <Property Name="xfallback_low" Type="int" />
+          <Property Name="xfallback_drive" Type="char" MaxLength="2" />
+          <Property Name="low" Type="int" Nullable="false" />
+          <Property Name="high" Type="int" Nullable="false" />
+          <Property Name="status" Type="smallint" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="phyname" Type="varchar" MaxLength="127" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'master.dbo.spt_fallback_usg' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="spt_fallback_usg">
+          <Key>
+            <PropertyRef Name="xserver_name" />
+            <PropertyRef Name="xdttm_ins" />
+            <PropertyRef Name="xdttm_last_ins_upd" />
+            <PropertyRef Name="dbid" />
+            <PropertyRef Name="segmap" />
+            <PropertyRef Name="lstart" />
+            <PropertyRef Name="sizepg" />
+            <PropertyRef Name="vstart" />
+          </Key>
+          <Property Name="xserver_name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="xdttm_ins" Type="datetime" Nullable="false" />
+          <Property Name="xdttm_last_ins_upd" Type="datetime" Nullable="false" />
+          <Property Name="xfallback_vstart" Type="int" />
+          <Property Name="dbid" Type="smallint" Nullable="false" />
+          <Property Name="segmap" Type="int" Nullable="false" />
+          <Property Name="lstart" Type="int" Nullable="false" />
+          <Property Name="sizepg" Type="int" Nullable="false" />
+          <Property Name="vstart" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'master.dbo.spt_monitor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="spt_monitor">
+          <Key>
+            <PropertyRef Name="lastrun" />
+            <PropertyRef Name="cpu_busy" />
+            <PropertyRef Name="io_busy" />
+            <PropertyRef Name="idle" />
+            <PropertyRef Name="pack_received" />
+            <PropertyRef Name="pack_sent" />
+            <PropertyRef Name="connections" />
+            <PropertyRef Name="pack_errors" />
+            <PropertyRef Name="total_read" />
+            <PropertyRef Name="total_write" />
+            <PropertyRef Name="total_errors" />
+          </Key>
+          <Property Name="lastrun" Type="datetime" Nullable="false" />
+          <Property Name="cpu_busy" Type="int" Nullable="false" />
+          <Property Name="io_busy" Type="int" Nullable="false" />
+          <Property Name="idle" Type="int" Nullable="false" />
+          <Property Name="pack_received" Type="int" Nullable="false" />
+          <Property Name="pack_sent" Type="int" Nullable="false" />
+          <Property Name="connections" Type="int" Nullable="false" />
+          <Property Name="pack_errors" Type="int" Nullable="false" />
+          <Property Name="total_read" Type="int" Nullable="false" />
+          <Property Name="total_write" Type="int" Nullable="false" />
+          <Property Name="total_errors" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Cassettes__C_A_c__278EDA44">
+          <End Role="Authors" Type="Self.Authors" Multiplicity="1" />
+          <End Role="Cassettes" Type="Self.Cassettes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Authors">
+              <PropertyRef Name="A_cod" />
+            </Principal>
+            <Dependent Role="Cassettes">
+              <PropertyRef Name="C_A_cod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__nurse__CITYnurse__0BE6BFCF">
+          <End Role="city" Type="Self.city" Multiplicity="0..1" />
+          <End Role="nurse" Type="Self.nurse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="city">
+              <PropertyRef Name="CODEcity" />
+            </Principal>
+            <Dependent Role="nurse">
+              <PropertyRef Name="CITYnurse" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__patients__CODEci__090A5324">
+          <End Role="city" Type="Self.city" Multiplicity="0..1" />
+          <End Role="patients" Type="Self.patients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="city">
+              <PropertyRef Name="CODEcity" />
+            </Principal>
+            <Dependent Role="patients">
+              <PropertyRef Name="CODEcity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__patients__CODEro__08162EEB">
+          <End Role="room" Type="Self.room" Multiplicity="0..1" />
+          <End Role="patients" Type="Self.patients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="room">
+              <PropertyRef Name="CODEroom" />
+            </Principal>
+            <Dependent Role="patients">
+              <PropertyRef Name="CODEroomPATIENTS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__room__CODEdepart__035179CE">
+          <End Role="departments" Type="Self.departments" Multiplicity="1" />
+          <End Role="room" Type="Self.room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departments">
+              <PropertyRef Name="CODEdepartments" />
+            </Principal>
+            <Dependent Role="room">
+              <PropertyRef Name="CODEdepartmentROOM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__shiftt__CODEnurs__10AB74EC">
+          <End Role="nurse" Type="Self.nurse" Multiplicity="0..1" />
+          <End Role="shiftt" Type="Self.shiftt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nurse">
+              <PropertyRef Name="IDnurse" />
+            </Principal>
+            <Dependent Role="shiftt">
+              <PropertyRef Name="CODEnursesSHIFT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__shiftt__CODEroom__119F9925">
+          <End Role="room" Type="Self.room" Multiplicity="0..1" />
+          <End Role="shiftt" Type="Self.shiftt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="room">
+              <PropertyRef Name="CODEroom" />
+            </Principal>
+            <Dependent Role="shiftt">
+              <PropertyRef Name="CODEroomSHIFT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="masterModelStoreContainer">
+          <EntitySet Name="Authors" EntityType="Self.Authors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Candidates" EntityType="Self.Candidates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cassettes" EntityType="Self.Cassettes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="city" EntityType="Self.city" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="departments" EntityType="Self.departments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Emeployees" EntityType="Self.Emeployees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="interview" EntityType="Self.interview" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="nurse" EntityType="Self.nurse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="patients" EntityType="Self.patients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="room" EntityType="Self.room" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="shiftt" EntityType="Self.shiftt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MSreplication_options" EntityType="Self.MSreplication_options" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MSreplication_options].[optname] AS [optname], 
+    [MSreplication_options].[value] AS [value], 
+    [MSreplication_options].[major_version] AS [major_version], 
+    [MSreplication_options].[minor_version] AS [minor_version], 
+    [MSreplication_options].[revision] AS [revision], 
+    [MSreplication_options].[install_failures] AS [install_failures]
+    FROM [dbo].[MSreplication_options] AS [MSreplication_options]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="spt_fallback_db" EntityType="Self.spt_fallback_db" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [spt_fallback_db].[xserver_name] AS [xserver_name], 
+    [spt_fallback_db].[xdttm_ins] AS [xdttm_ins], 
+    [spt_fallback_db].[xdttm_last_ins_upd] AS [xdttm_last_ins_upd], 
+    [spt_fallback_db].[xfallback_dbid] AS [xfallback_dbid], 
+    [spt_fallback_db].[name] AS [name], 
+    [spt_fallback_db].[dbid] AS [dbid], 
+    [spt_fallback_db].[status] AS [status], 
+    [spt_fallback_db].[version] AS [version]
+    FROM [dbo].[spt_fallback_db] AS [spt_fallback_db]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="spt_fallback_dev" EntityType="Self.spt_fallback_dev" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [spt_fallback_dev].[xserver_name] AS [xserver_name], 
+    [spt_fallback_dev].[xdttm_ins] AS [xdttm_ins], 
+    [spt_fallback_dev].[xdttm_last_ins_upd] AS [xdttm_last_ins_upd], 
+    [spt_fallback_dev].[xfallback_low] AS [xfallback_low], 
+    [spt_fallback_dev].[xfallback_drive] AS [xfallback_drive], 
+    [spt_fallback_dev].[low] AS [low], 
+    [spt_fallback_dev].[high] AS [high], 
+    [spt_fallback_dev].[status] AS [status], 
+    [spt_fallback_dev].[name] AS [name], 
+    [spt_fallback_dev].[phyname] AS [phyname]
+    FROM [dbo].[spt_fallback_dev] AS [spt_fallback_dev]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="spt_fallback_usg" EntityType="Self.spt_fallback_usg" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [spt_fallback_usg].[xserver_name] AS [xserver_name], 
+    [spt_fallback_usg].[xdttm_ins] AS [xdttm_ins], 
+    [spt_fallback_usg].[xdttm_last_ins_upd] AS [xdttm_last_ins_upd], 
+    [spt_fallback_usg].[xfallback_vstart] AS [xfallback_vstart], 
+    [spt_fallback_usg].[dbid] AS [dbid], 
+    [spt_fallback_usg].[segmap] AS [segmap], 
+    [spt_fallback_usg].[lstart] AS [lstart], 
+    [spt_fallback_usg].[sizepg] AS [sizepg], 
+    [spt_fallback_usg].[vstart] AS [vstart]
+    FROM [dbo].[spt_fallback_usg] AS [spt_fallback_usg]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="spt_monitor" EntityType="Self.spt_monitor" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [spt_monitor].[lastrun] AS [lastrun], 
+    [spt_monitor].[cpu_busy] AS [cpu_busy], 
+    [spt_monitor].[io_busy] AS [io_busy], 
+    [spt_monitor].[idle] AS [idle], 
+    [spt_monitor].[pack_received] AS [pack_received], 
+    [spt_monitor].[pack_sent] AS [pack_sent], 
+    [spt_monitor].[connections] AS [connections], 
+    [spt_monitor].[pack_errors] AS [pack_errors], 
+    [spt_monitor].[total_read] AS [total_read], 
+    [spt_monitor].[total_write] AS [total_write], 
+    [spt_monitor].[total_errors] AS [total_errors]
+    FROM [dbo].[spt_monitor] AS [spt_monitor]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Cassettes__C_A_c__278EDA44" Association="Self.FK__Cassettes__C_A_c__278EDA44">
+            <End Role="Authors" EntitySet="Authors" />
+            <End Role="Cassettes" EntitySet="Cassettes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__nurse__CITYnurse__0BE6BFCF" Association="Self.FK__nurse__CITYnurse__0BE6BFCF">
+            <End Role="city" EntitySet="city" />
+            <End Role="nurse" EntitySet="nurse" />
+          </AssociationSet>
+          <AssociationSet Name="FK__patients__CODEci__090A5324" Association="Self.FK__patients__CODEci__090A5324">
+            <End Role="city" EntitySet="city" />
+            <End Role="patients" EntitySet="patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__patients__CODEro__08162EEB" Association="Self.FK__patients__CODEro__08162EEB">
+            <End Role="room" EntitySet="room" />
+            <End Role="patients" EntitySet="patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__room__CODEdepart__035179CE" Association="Self.FK__room__CODEdepart__035179CE">
+            <End Role="departments" EntitySet="departments" />
+            <End Role="room" EntitySet="room" />
+          </AssociationSet>
+          <AssociationSet Name="FK__shiftt__CODEnurs__10AB74EC" Association="Self.FK__shiftt__CODEnurs__10AB74EC">
+            <End Role="nurse" EntitySet="nurse" />
+            <End Role="shiftt" EntitySet="shiftt" />
+          </AssociationSet>
+          <AssociationSet Name="FK__shiftt__CODEroom__119F9925" Association="Self.FK__shiftt__CODEroom__119F9925">
+            <End Role="room" EntitySet="room" />
+            <End Role="shiftt" EntitySet="shiftt" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="masterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Authors">
+          <Key>
+            <PropertyRef Name="A_cod" />
+          </Key>
+          <Property Name="A_cod" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="A_fName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="A_lName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="A_adress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="A_city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cassettes" Relationship="Self.FK__Cassettes__C_A_c__278EDA44" FromRole="Authors" ToRole="Cassettes" />
+        </EntityType>
+        <EntityType Name="Candidates">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="greade" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Cassettes">
+          <Key>
+            <PropertyRef Name="C_cod" />
+          </Key>
+          <Property Name="C_cod" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="C_sub" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="C_len" Type="Double" />
+          <Property Name="C_A_cod" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Authors" Relationship="Self.FK__Cassettes__C_A_c__278EDA44" FromRole="Cassettes" ToRole="Authors" />
+        </EntityType>
+        <EntityType Name="city">
+          <Key>
+            <PropertyRef Name="CODEcity" />
+          </Key>
+          <Property Name="CODEcity" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAMEcity" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="nurse" Relationship="Self.FK__nurse__CITYnurse__0BE6BFCF" FromRole="city" ToRole="nurse" />
+          <NavigationProperty Name="patients" Relationship="Self.FK__patients__CODEci__090A5324" FromRole="city" ToRole="patients" />
+        </EntityType>
+        <EntityType Name="departments">
+          <Key>
+            <PropertyRef Name="CODEdepartments" />
+          </Key>
+          <Property Name="CODEdepartments" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAMEdepartments" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="room" Relationship="Self.FK__room__CODEdepart__035179CE" FromRole="departments" ToRole="room" />
+        </EntityType>
+        <EntityType Name="Emeployees">
+          <Key>
+            <PropertyRef Name="IdEmeployee" />
+          </Key>
+          <Property Name="IdEmeployee" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="StartOfWorkingYear" Type="Int32" />
+          <Property Name="CityAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StreetAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="JobTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GmailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="interview">
+          <Key>
+            <PropertyRef Name="IntervewNum" />
+          </Key>
+          <Property Name="IntervewNum" Type="Int32" Nullable="false" />
+          <Property Name="Id_Intervoewer" Type="Int32" />
+          <Property Name="id_interviewee" Type="Int32" />
+          <Property Name="Date_intervew" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="interviewFORrole" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="isSucceed" Type="Int32" />
+        </EntityType>
+        <EntityType Name="nurse">
+          <Key>
+            <PropertyRef Name="IDnurse" />
+          </Key>
+          <Property Name="IDnurse" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NAMEnurse" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ADRESSnurse" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CITYnurse" Type="Int32" />
+          <Property Name="HOURsalaryNURSE" Type="Double" />
+          <NavigationProperty Name="city" Relationship="Self.FK__nurse__CITYnurse__0BE6BFCF" FromRole="nurse" ToRole="city" />
+          <NavigationProperty Name="shiftt" Relationship="Self.FK__shiftt__CODEnurs__10AB74EC" FromRole="nurse" ToRole="shiftt" />
+        </EntityType>
+        <EntityType Name="patients">
+          <Key>
+            <PropertyRef Name="IDpatient" />
+          </Key>
+          <Property Name="IDpatient" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NAMEpatient" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BIRTHDAYpatient" Type="DateTime" Precision="0" />
+          <Property Name="ADRESS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ADRESSpatient" Type="DateTime" Precision="0" />
+          <Property Name="CODEroomPATIENTS" Type="Int32" />
+          <Property Name="CODEcity" Type="Int32" />
+          <Property Name="ILLNESSpatient" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="city" Relationship="Self.FK__patients__CODEci__090A5324" FromRole="patients" ToRole="city" />
+          <NavigationProperty Name="room" Relationship="Self.FK__patients__CODEro__08162EEB" FromRole="patients" ToRole="room" />
+        </EntityType>
+        <EntityType Name="room">
+          <Key>
+            <PropertyRef Name="CODEroom" />
+          </Key>
+          <Property Name="CODEroom" Type="Int32" Nullable="false" />
+          <Property Name="CODEdepartmentROOM" Type="Int32" Nullable="false" />
+          <Property Name="COUNTroomBEDS" Type="Int32" />
+          <NavigationProperty Name="departments" Relationship="Self.FK__room__CODEdepart__035179CE" FromRole="room" ToRole="departments" />
+          <NavigationProperty Name="patients" Relationship="Self.FK__patients__CODEro__08162EEB" FromRole="room" ToRole="patients" />
+          <NavigationProperty Name="shiftt" Relationship="Self.FK__shiftt__CODEroom__119F9925" FromRole="room" ToRole="shiftt" />
+        </EntityType>
+        <EntityType Name="shiftt">
+          <Key>
+            <PropertyRef Name="CODEshift" />
+          </Key>
+          <Property Name="CODEshift" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CODEnursesSHIFT" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="CODEroomSHIFT" Type="Int32" />
+          <Property Name="BEGINhourSHIFT" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ENDhourSHIFT" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="nurse" Relationship="Self.FK__shiftt__CODEnurs__10AB74EC" FromRole="shiftt" ToRole="nurse" />
+          <NavigationProperty Name="room" Relationship="Self.FK__shiftt__CODEroom__119F9925" FromRole="shiftt" ToRole="room" />
+        </EntityType>
+        <EntityType Name="MSreplication_options">
+          <Key>
+            <PropertyRef Name="optname" />
+            <PropertyRef Name="value" />
+            <PropertyRef Name="major_version" />
+            <PropertyRef Name="minor_version" />
+            <PropertyRef Name="revision" />
+            <PropertyRef Name="install_failures" />
+          </Key>
+          <Property Name="optname" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="value" Type="Boolean" Nullable="false" />
+          <Property Name="major_version" Type="Int32" Nullable="false" />
+          <Property Name="minor_version" Type="Int32" Nullable="false" />
+          <Property Name="revision" Type="Int32" Nullable="false" />
+          <Property Name="install_failures" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="spt_fallback_db">
+          <Key>
+            <PropertyRef Name="xserver_name" />
+            <PropertyRef Name="xdttm_ins" />
+            <PropertyRef Name="xdttm_last_ins_upd" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="dbid" />
+            <PropertyRef Name="status" />
+            <PropertyRef Name="version" />
+          </Key>
+          <Property Name="xserver_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="xdttm_ins" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="xdttm_last_ins_upd" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="xfallback_dbid" Type="Int16" />
+          <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dbid" Type="Int16" Nullable="false" />
+          <Property Name="status" Type="Int16" Nullable="false" />
+          <Property Name="version" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="spt_fallback_dev">
+          <Key>
+            <PropertyRef Name="xserver_name" />
+            <PropertyRef Name="xdttm_ins" />
+            <PropertyRef Name="xdttm_last_ins_upd" />
+            <PropertyRef Name="low" />
+            <PropertyRef Name="high" />
+            <PropertyRef Name="status" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="phyname" />
+          </Key>
+          <Property Name="xserver_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="xdttm_ins" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="xdttm_last_ins_upd" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="xfallback_low" Type="Int32" />
+          <Property Name="xfallback_drive" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="low" Type="Int32" Nullable="false" />
+          <Property Name="high" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="Int16" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phyname" Type="String" MaxLength="127" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="spt_fallback_usg">
+          <Key>
+            <PropertyRef Name="xserver_name" />
+            <PropertyRef Name="xdttm_ins" />
+            <PropertyRef Name="xdttm_last_ins_upd" />
+            <PropertyRef Name="dbid" />
+            <PropertyRef Name="segmap" />
+            <PropertyRef Name="lstart" />
+            <PropertyRef Name="sizepg" />
+            <PropertyRef Name="vstart" />
+          </Key>
+          <Property Name="xserver_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="xdttm_ins" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="xdttm_last_ins_upd" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="xfallback_vstart" Type="Int32" />
+          <Property Name="dbid" Type="Int16" Nullable="false" />
+          <Property Name="segmap" Type="Int32" Nullable="false" />
+          <Property Name="lstart" Type="Int32" Nullable="false" />
+          <Property Name="sizepg" Type="Int32" Nullable="false" />
+          <Property Name="vstart" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="spt_monitor">
+          <Key>
+            <PropertyRef Name="lastrun" />
+            <PropertyRef Name="cpu_busy" />
+            <PropertyRef Name="io_busy" />
+            <PropertyRef Name="idle" />
+            <PropertyRef Name="pack_received" />
+            <PropertyRef Name="pack_sent" />
+            <PropertyRef Name="connections" />
+            <PropertyRef Name="pack_errors" />
+            <PropertyRef Name="total_read" />
+            <PropertyRef Name="total_write" />
+            <PropertyRef Name="total_errors" />
+          </Key>
+          <Property Name="lastrun" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="cpu_busy" Type="Int32" Nullable="false" />
+          <Property Name="io_busy" Type="Int32" Nullable="false" />
+          <Property Name="idle" Type="Int32" Nullable="false" />
+          <Property Name="pack_received" Type="Int32" Nullable="false" />
+          <Property Name="pack_sent" Type="Int32" Nullable="false" />
+          <Property Name="connections" Type="Int32" Nullable="false" />
+          <Property Name="pack_errors" Type="Int32" Nullable="false" />
+          <Property Name="total_read" Type="Int32" Nullable="false" />
+          <Property Name="total_write" Type="Int32" Nullable="false" />
+          <Property Name="total_errors" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Cassettes__C_A_c__278EDA44">
+          <End Role="Authors" Type="Self.Authors" Multiplicity="1" />
+          <End Role="Cassettes" Type="Self.Cassettes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Authors">
+              <PropertyRef Name="A_cod" />
+            </Principal>
+            <Dependent Role="Cassettes">
+              <PropertyRef Name="C_A_cod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__nurse__CITYnurse__0BE6BFCF">
+          <End Role="city" Type="Self.city" Multiplicity="0..1" />
+          <End Role="nurse" Type="Self.nurse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="city">
+              <PropertyRef Name="CODEcity" />
+            </Principal>
+            <Dependent Role="nurse">
+              <PropertyRef Name="CITYnurse" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__patients__CODEci__090A5324">
+          <End Role="city" Type="Self.city" Multiplicity="0..1" />
+          <End Role="patients" Type="Self.patients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="city">
+              <PropertyRef Name="CODEcity" />
+            </Principal>
+            <Dependent Role="patients">
+              <PropertyRef Name="CODEcity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__room__CODEdepart__035179CE">
+          <End Role="departments" Type="Self.departments" Multiplicity="1" />
+          <End Role="room" Type="Self.room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departments">
+              <PropertyRef Name="CODEdepartments" />
+            </Principal>
+            <Dependent Role="room">
+              <PropertyRef Name="CODEdepartmentROOM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__shiftt__CODEnurs__10AB74EC">
+          <End Role="nurse" Type="Self.nurse" Multiplicity="0..1" />
+          <End Role="shiftt" Type="Self.shiftt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nurse">
+              <PropertyRef Name="IDnurse" />
+            </Principal>
+            <Dependent Role="shiftt">
+              <PropertyRef Name="CODEnursesSHIFT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__patients__CODEro__08162EEB">
+          <End Role="room" Type="Self.room" Multiplicity="0..1" />
+          <End Role="patients" Type="Self.patients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="room">
+              <PropertyRef Name="CODEroom" />
+            </Principal>
+            <Dependent Role="patients">
+              <PropertyRef Name="CODEroomPATIENTS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__shiftt__CODEroom__119F9925">
+          <End Role="room" Type="Self.room" Multiplicity="0..1" />
+          <End Role="shiftt" Type="Self.shiftt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="room">
+              <PropertyRef Name="CODEroom" />
+            </Principal>
+            <Dependent Role="shiftt">
+              <PropertyRef Name="CODEroomSHIFT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="masterEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Authors" EntityType="Self.Authors" />
+          <EntitySet Name="Candidates" EntityType="Self.Candidates" />
+          <EntitySet Name="Cassettes" EntityType="Self.Cassettes" />
+          <EntitySet Name="city" EntityType="Self.city" />
+          <EntitySet Name="departments" EntityType="Self.departments" />
+          <EntitySet Name="Emeployees" EntityType="Self.Emeployees" />
+          <EntitySet Name="interview" EntityType="Self.interview" />
+          <EntitySet Name="nurse" EntityType="Self.nurse" />
+          <EntitySet Name="patients" EntityType="Self.patients" />
+          <EntitySet Name="room" EntityType="Self.room" />
+          <EntitySet Name="shiftt" EntityType="Self.shiftt" />
+          <EntitySet Name="MSreplication_options" EntityType="Self.MSreplication_options" />
+          <EntitySet Name="spt_fallback_db" EntityType="Self.spt_fallback_db" />
+          <EntitySet Name="spt_fallback_dev" EntityType="Self.spt_fallback_dev" />
+          <EntitySet Name="spt_fallback_usg" EntityType="Self.spt_fallback_usg" />
+          <EntitySet Name="spt_monitor" EntityType="Self.spt_monitor" />
+          <AssociationSet Name="FK__Cassettes__C_A_c__278EDA44" Association="Self.FK__Cassettes__C_A_c__278EDA44">
+            <End Role="Authors" EntitySet="Authors" />
+            <End Role="Cassettes" EntitySet="Cassettes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__nurse__CITYnurse__0BE6BFCF" Association="Self.FK__nurse__CITYnurse__0BE6BFCF">
+            <End Role="city" EntitySet="city" />
+            <End Role="nurse" EntitySet="nurse" />
+          </AssociationSet>
+          <AssociationSet Name="FK__patients__CODEci__090A5324" Association="Self.FK__patients__CODEci__090A5324">
+            <End Role="city" EntitySet="city" />
+            <End Role="patients" EntitySet="patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__room__CODEdepart__035179CE" Association="Self.FK__room__CODEdepart__035179CE">
+            <End Role="departments" EntitySet="departments" />
+            <End Role="room" EntitySet="room" />
+          </AssociationSet>
+          <AssociationSet Name="FK__shiftt__CODEnurs__10AB74EC" Association="Self.FK__shiftt__CODEnurs__10AB74EC">
+            <End Role="nurse" EntitySet="nurse" />
+            <End Role="shiftt" EntitySet="shiftt" />
+          </AssociationSet>
+          <AssociationSet Name="FK__patients__CODEro__08162EEB" Association="Self.FK__patients__CODEro__08162EEB">
+            <End Role="room" EntitySet="room" />
+            <End Role="patients" EntitySet="patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__shiftt__CODEroom__119F9925" Association="Self.FK__shiftt__CODEroom__119F9925">
+            <End Role="room" EntitySet="room" />
+            <End Role="shiftt" EntitySet="shiftt" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="masterModelStoreContainer" CdmEntityContainer="masterEntities">
+          <EntitySetMapping Name="Authors">
+            <EntityTypeMapping TypeName="masterModel.Authors">
+              <MappingFragment StoreEntitySet="Authors">
+                <ScalarProperty Name="A_cod" ColumnName="A_cod" />
+                <ScalarProperty Name="A_fName" ColumnName="A_fName" />
+                <ScalarProperty Name="A_lName" ColumnName="A_lName" />
+                <ScalarProperty Name="A_adress" ColumnName="A_adress" />
+                <ScalarProperty Name="A_city" ColumnName="A_city" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Candidates">
+            <EntityTypeMapping TypeName="masterModel.Candidates">
+              <MappingFragment StoreEntitySet="Candidates">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="greade" ColumnName="greade" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cassettes">
+            <EntityTypeMapping TypeName="masterModel.Cassettes">
+              <MappingFragment StoreEntitySet="Cassettes">
+                <ScalarProperty Name="C_cod" ColumnName="C_cod" />
+                <ScalarProperty Name="C_Name" ColumnName="C_Name" />
+                <ScalarProperty Name="C_sub" ColumnName="C_sub" />
+                <ScalarProperty Name="C_len" ColumnName="C_len" />
+                <ScalarProperty Name="C_A_cod" ColumnName="C_A_cod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="city">
+            <EntityTypeMapping TypeName="masterModel.city">
+              <MappingFragment StoreEntitySet="city">
+                <ScalarProperty Name="CODEcity" ColumnName="CODEcity" />
+                <ScalarProperty Name="NAMEcity" ColumnName="NAMEcity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="departments">
+            <EntityTypeMapping TypeName="masterModel.departments">
+              <MappingFragment StoreEntitySet="departments">
+                <ScalarProperty Name="CODEdepartments" ColumnName="CODEdepartments" />
+                <ScalarProperty Name="NAMEdepartments" ColumnName="NAMEdepartments" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Emeployees">
+            <EntityTypeMapping TypeName="masterModel.Emeployees">
+              <MappingFragment StoreEntitySet="Emeployees">
+                <ScalarProperty Name="IdEmeployee" ColumnName="IdEmeployee" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="StartOfWorkingYear" ColumnName="StartOfWorkingYear" />
+                <ScalarProperty Name="CityAddress" ColumnName="CityAddress" />
+                <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="GmailAddress" ColumnName="GmailAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="interview">
+            <EntityTypeMapping TypeName="masterModel.interview">
+              <MappingFragment StoreEntitySet="interview">
+                <ScalarProperty Name="IntervewNum" ColumnName="IntervewNum" />
+                <ScalarProperty Name="Id_Intervoewer" ColumnName="Id_Intervoewer" />
+                <ScalarProperty Name="id_interviewee" ColumnName="id_interviewee" />
+                <ScalarProperty Name="Date_intervew" ColumnName="Date_intervew" />
+                <ScalarProperty Name="interviewFORrole" ColumnName="interviewFORrole" />
+                <ScalarProperty Name="isSucceed" ColumnName="isSucceed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="nurse">
+            <EntityTypeMapping TypeName="masterModel.nurse">
+              <MappingFragment StoreEntitySet="nurse">
+                <ScalarProperty Name="IDnurse" ColumnName="IDnurse" />
+                <ScalarProperty Name="NAMEnurse" ColumnName="NAMEnurse" />
+                <ScalarProperty Name="ADRESSnurse" ColumnName="ADRESSnurse" />
+                <ScalarProperty Name="CITYnurse" ColumnName="CITYnurse" />
+                <ScalarProperty Name="HOURsalaryNURSE" ColumnName="HOURsalaryNURSE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="patients">
+            <EntityTypeMapping TypeName="masterModel.patients">
+              <MappingFragment StoreEntitySet="patients">
+                <ScalarProperty Name="IDpatient" ColumnName="IDpatient" />
+                <ScalarProperty Name="NAMEpatient" ColumnName="NAMEpatient" />
+                <ScalarProperty Name="BIRTHDAYpatient" ColumnName="BIRTHDAYpatient" />
+                <ScalarProperty Name="ADRESS" ColumnName="ADRESS" />
+                <ScalarProperty Name="ADRESSpatient" ColumnName="ADRESSpatient" />
+                <ScalarProperty Name="CODEroomPATIENTS" ColumnName="CODEroomPATIENTS" />
+                <ScalarProperty Name="CODEcity" ColumnName="CODEcity" />
+                <ScalarProperty Name="ILLNESSpatient" ColumnName="ILLNESSpatient" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="room">
+            <EntityTypeMapping TypeName="masterModel.room">
+              <MappingFragment StoreEntitySet="room">
+                <ScalarProperty Name="CODEroom" ColumnName="CODEroom" />
+                <ScalarProperty Name="CODEdepartmentROOM" ColumnName="CODEdepartmentROOM" />
+                <ScalarProperty Name="COUNTroomBEDS" ColumnName="COUNTroomBEDS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="shiftt">
+            <EntityTypeMapping TypeName="masterModel.shiftt">
+              <MappingFragment StoreEntitySet="shiftt">
+                <ScalarProperty Name="CODEshift" ColumnName="CODEshift" />
+                <ScalarProperty Name="CODEnursesSHIFT" ColumnName="CODEnursesSHIFT" />
+                <ScalarProperty Name="CODEroomSHIFT" ColumnName="CODEroomSHIFT" />
+                <ScalarProperty Name="BEGINhourSHIFT" ColumnName="BEGINhourSHIFT" />
+                <ScalarProperty Name="ENDhourSHIFT" ColumnName="ENDhourSHIFT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MSreplication_options">
+            <EntityTypeMapping TypeName="masterModel.MSreplication_options">
+              <MappingFragment StoreEntitySet="MSreplication_options">
+                <ScalarProperty Name="optname" ColumnName="optname" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="major_version" ColumnName="major_version" />
+                <ScalarProperty Name="minor_version" ColumnName="minor_version" />
+                <ScalarProperty Name="revision" ColumnName="revision" />
+                <ScalarProperty Name="install_failures" ColumnName="install_failures" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="spt_fallback_db">
+            <EntityTypeMapping TypeName="masterModel.spt_fallback_db">
+              <MappingFragment StoreEntitySet="spt_fallback_db">
+                <ScalarProperty Name="xserver_name" ColumnName="xserver_name" />
+                <ScalarProperty Name="xdttm_ins" ColumnName="xdttm_ins" />
+                <ScalarProperty Name="xdttm_last_ins_upd" ColumnName="xdttm_last_ins_upd" />
+                <ScalarProperty Name="xfallback_dbid" ColumnName="xfallback_dbid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="dbid" ColumnName="dbid" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="version" ColumnName="version" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="spt_fallback_dev">
+            <EntityTypeMapping TypeName="masterModel.spt_fallback_dev">
+              <MappingFragment StoreEntitySet="spt_fallback_dev">
+                <ScalarProperty Name="xserver_name" ColumnName="xserver_name" />
+                <ScalarProperty Name="xdttm_ins" ColumnName="xdttm_ins" />
+                <ScalarProperty Name="xdttm_last_ins_upd" ColumnName="xdttm_last_ins_upd" />
+                <ScalarProperty Name="xfallback_low" ColumnName="xfallback_low" />
+                <ScalarProperty Name="xfallback_drive" ColumnName="xfallback_drive" />
+                <ScalarProperty Name="low" ColumnName="low" />
+                <ScalarProperty Name="high" ColumnName="high" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="phyname" ColumnName="phyname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="spt_fallback_usg">
+            <EntityTypeMapping TypeName="masterModel.spt_fallback_usg">
+              <MappingFragment StoreEntitySet="spt_fallback_usg">
+                <ScalarProperty Name="xserver_name" ColumnName="xserver_name" />
+                <ScalarProperty Name="xdttm_ins" ColumnName="xdttm_ins" />
+                <ScalarProperty Name="xdttm_last_ins_upd" ColumnName="xdttm_last_ins_upd" />
+                <ScalarProperty Name="xfallback_vstart" ColumnName="xfallback_vstart" />
+                <ScalarProperty Name="dbid" ColumnName="dbid" />
+                <ScalarProperty Name="segmap" ColumnName="segmap" />
+                <ScalarProperty Name="lstart" ColumnName="lstart" />
+                <ScalarProperty Name="sizepg" ColumnName="sizepg" />
+                <ScalarProperty Name="vstart" ColumnName="vstart" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="spt_monitor">
+            <EntityTypeMapping TypeName="masterModel.spt_monitor">
+              <MappingFragment StoreEntitySet="spt_monitor">
+                <ScalarProperty Name="lastrun" ColumnName="lastrun" />
+                <ScalarProperty Name="cpu_busy" ColumnName="cpu_busy" />
+                <ScalarProperty Name="io_busy" ColumnName="io_busy" />
+                <ScalarProperty Name="idle" ColumnName="idle" />
+                <ScalarProperty Name="pack_received" ColumnName="pack_received" />
+                <ScalarProperty Name="pack_sent" ColumnName="pack_sent" />
+                <ScalarProperty Name="connections" ColumnName="connections" />
+                <ScalarProperty Name="pack_errors" ColumnName="pack_errors" />
+                <ScalarProperty Name="total_read" ColumnName="total_read" />
+                <ScalarProperty Name="total_write" ColumnName="total_write" />
+                <ScalarProperty Name="total_errors" ColumnName="total_errors" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

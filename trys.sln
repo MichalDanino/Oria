@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{AFAFC121-6C38-4D38-9CC6-F4CD676EB5C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp1", "WindowsFormsApp1\WindowsFormsApp1.csproj", "{CAC147A0-4809-490E-B9A1-14D48CE4FE3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADO", "ADO\ADO.csproj", "{66094EB3-CB7E-4286-851D-0DA55CCAAE9C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AFAFC121-6C38-4D38-9CC6-F4CD676EB5C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFAFC121-6C38-4D38-9CC6-F4CD676EB5C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFAFC121-6C38-4D38-9CC6-F4CD676EB5C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFAFC121-6C38-4D38-9CC6-F4CD676EB5C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAC147A0-4809-490E-B9A1-14D48CE4FE3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAC147A0-4809-490E-B9A1-14D48CE4FE3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAC147A0-4809-490E-B9A1-14D48CE4FE3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAC147A0-4809-490E-B9A1-14D48CE4FE3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66094EB3-CB7E-4286-851D-0DA55CCAAE9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66094EB3-CB7E-4286-851D-0DA55CCAAE9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66094EB3-CB7E-4286-851D-0DA55CCAAE9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66094EB3-CB7E-4286-851D-0DA55CCAAE9C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F2543995-0D42-4298-81C8-6E44933E4450}
+	EndGlobalSection
+EndGlobal

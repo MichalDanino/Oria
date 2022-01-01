@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8d1afc4aa6254b4f852ac857bfa2539a" Name="Diagram1">
+        <EntityTypeShape EntityType="masterModel.Authors" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.Candidates" Width="1.5" PointX="5.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.Cassettes" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.city" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.departments" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.Emeployees" Width="1.5" PointX="7.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.interview" Width="1.5" PointX="9.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.nurse" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.patients" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.room" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.shiftt" Width="1.5" PointX="8.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.MSreplication_options" Width="1.5" PointX="9.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.spt_fallback_db" Width="1.5" PointX="10.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.spt_fallback_dev" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.spt_fallback_usg" Width="1.5" PointX="2.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.spt_monitor" Width="1.5" PointX="4.75" PointY="12.5" IsExpanded="true" />
+        <AssociationConnector Association="masterModel.FK__Cassettes__C_A_c__278EDA44" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK__nurse__CITYnurse__0BE6BFCF" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK__patients__CODEci__090A5324" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK__room__CODEdepart__035179CE" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK__shiftt__CODEnurs__10AB74EC" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK__patients__CODEro__08162EEB" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK__shiftt__CODEroom__119F9925" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
